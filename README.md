@@ -27,7 +27,7 @@ The data was collected from the Spanish Google Play Store. The game descriptions
 
 ```text
 google-play-games-recommender/
-├── data/                       # Small sample datasets
+├── data/                       # Small game-data samples
 ├── notebooks/
 │   ├── 01_EDA_preprocessing.ipynb
 │   ├── 02_vectorization_classical.ipynb
@@ -42,7 +42,7 @@ google-play-games-recommender/
 
 The notebooks are numbered in the order they should be viewed. Most of them already include their outputs, so the analysis and results can be seen directly on GitHub without rerunning the full pipeline. The final recommender notebook has its user-level outputs cleared for privacy.
 
-The repository includes smaller samples of the game and interaction datasets. Reviewer IDs in the interaction sample are anonymized. The complete dataset is not included, but it can be rebuilt with `scripts/dataset_final.py`.
+The repository includes smaller samples of the raw and preprocessed game datasets. The user-rating interaction data is not published because it contains reviewer history and timestamps. The complete datasets can be rebuilt with `scripts/dataset_final.py`.
 
 ## Main approaches
 
