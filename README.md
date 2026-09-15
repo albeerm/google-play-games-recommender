@@ -1,6 +1,6 @@
 # Google Play Games Recommender
 
-This was a machine learning group project I worked on for my Machine Learning Applications course at UC3M. The main goal was to build a dataset from the Google Play Store and use game descriptions and user ratings to create ranked game recommendations.
+This project uses game descriptions and user ratings from the Google Play Store to create ranked game recommendations.
 
 ## What the project does
 
