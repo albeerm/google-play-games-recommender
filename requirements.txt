@@ -1,0 +1,17 @@
+jupyter
+gensim
+google-play-scraper
+matplotlib
+numpy
+pandas
+pytorch-lightning
+scikit-learn
+scikit-surprise
+seaborn
+sentence-transformers
+spacy
+spacy-langdetect
+termcolor
+tomotopy
+torch
+tqdm
