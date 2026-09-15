@@ -1,79 +1,58 @@
 # Google Play Games Recommender
 
-This is a machine learning project I worked on with my group for our Machine Learning Applications course at UC3M. We built the dataset ourselves from the Spanish Google Play Store and compared different ways of recommending games.
-
-The main goal was to take raw game descriptions and user ratings, process them, and turn them into ranked game recommendations.
+This was a machine learning group project I worked on for my Machine Learning Applications course at UC3M. The main goal was to build a dataset from the Google Play Store and use game descriptions and user ratings to create ranked game recommendations.
 
 ## What the project does
 
-- Collects game information and reviews with `google-play-scraper`
-- Cleans Spanish and English text with spaCy
-- Compares Bag of Words, TF-IDF, Word2Vec, LDA, and BERT representations
-- Builds content-based recommendations using game-description similarity
-- Tests collaborative filtering with KNN, SVD, and neural models
-- Compares the different recommendation approaches and their results
+The project collects information about games and reviews from the Spanish Google Play Store. It processes the game descriptions and compares different ways of representing text, including Bag of Words, TF-IDF, Word2Vec, LDA, and BERT.
 
-## Dataset
+The processed data is then used to build content-based and collaborative recommendation models. The models recommend games based on either similar descriptions or patterns in user ratings.
 
-The final dataset contains:
+## Main features
 
-- 536 games across 44 genres
-- 13,837 user-game ratings
-- 1,548 users and 467 rated games in the interaction dataset
+- Google Play Store data collection
+- Text cleaning and preprocessing
+- Spanish and English text processing with spaCy
+- Exploratory data analysis
+- Bag of Words and TF-IDF vectorization
+- Word2Vec, LDA, and BERT models
+- Content-based recommendations
+- KNN and SVD collaborative filtering
+- Neural collaborative filtering
+- Comparison of different recommendation methods
 
-The data was collected from the Spanish Google Play Store. The game descriptions are mostly in Spanish, with some English words and phrases.
+## How it works
 
-## Project files
+The game descriptions are cleaned by removing unnecessary words and keeping useful parts of the text. Different vectorization methods convert each description into numerical features that a machine learning model can compare.
+
+For content-based recommendations, cosine similarity is used to find games with similar descriptions. The collaborative filtering models use patterns in user ratings to predict which games a user may like. We also tested a hybrid neural model that combines rating information with BERT description embeddings.
+
+The final dataset contained 536 games and 13,837 ratings. The repository includes smaller samples of the game data, while the reviewer interaction data is not published for privacy.
+
+## Technologies used
+
+- Python
+- Jupyter Notebook
+- Pandas and NumPy
+- Scikit-learn
+- spaCy
+- Gensim
+- BERT / Sentence Transformers
+- PyTorch
+- KNN and SVD
+- Natural language processing
+- Machine learning
+
+## Source code
+
+The main project notebooks are located in:
 
 ```text
-google-play-games-recommender/
-├── data/                       # Small game-data samples
-├── notebooks/
-│   ├── 01_EDA_preprocessing.ipynb
-│   ├── 02_vectorization_classical.ipynb
-│   ├── 03_vectorization_w2v.ipynb
-│   ├── 04_lda_topic_modeling.ipynb
-│   ├── 05_bert_embeddings.ipynb
-│   └── 06_recommender_system.ipynb
-├── scripts/
-│   └── dataset_final.py        # Google Play data collection script
-└── requirements.txt
+notebooks/
 ```
 
-The notebooks are numbered in the order they should be viewed. Most of them already include their outputs, so the analysis and results can be seen directly on GitHub without rerunning the full pipeline. The final recommender notebook has its user-level outputs cleared for privacy.
+The Google Play data collection script is located at `scripts/dataset_final.py`, and sample game data is included in `data/`.
 
-The repository includes smaller samples of the raw and preprocessed game datasets. The user-rating interaction data is not published because it contains reviewer history and timestamps. The complete datasets can be rebuilt with `scripts/dataset_final.py`.
+## What I learned
 
-## Main approaches
-
-### Content-based filtering
-
-Games are represented using their descriptions. Cosine similarity is then used to find games with similar content. We compared several text representations instead of relying on only one model.
-
-### Collaborative filtering
-
-The interaction dataset is used to recommend games based on rating patterns. We tested neighborhood-based KNN, SVD matrix factorization, neural collaborative filtering, and a hybrid model using BERT embeddings.
-
-## Running the notebooks
-
-Create a virtual environment and install the packages:
-
-```bash
-python -m venv venv
-
-# Windows
-venv\Scripts\activate
-
-# macOS/Linux
-source venv/bin/activate
-
-pip install -r requirements.txt
-python -m spacy download es_core_news_md
-python -m spacy download xx_sent_ud_sm
-```
-
-Then open Jupyter Notebook or JupyterLab and run the notebooks in numerical order. Some of the later notebooks can take a while because they train larger models such as BERT and neural recommenders.
-
-## Project note
-
-This was completed as a group project for our Machine Learning Applications course.
+This project helped me understand the full process of building a machine learning system, starting with collecting and cleaning data and ending with comparing recommendation models. I learned how different text representations can change recommendation results and how content-based filtering differs from collaborative filtering. I also got more experience working with Spanish text, handling unbalanced and sparse data, using larger models such as BERT, and organizing a multi-step project across several notebooks.
